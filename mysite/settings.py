@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+   # 'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,3 +124,9 @@ STATIC_ROOT =os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRDIRS = [
     os.path.join(BASE_DIR,'static'),
 ]
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'nyiwendesally@gmail.com'
+EMAIL_HOST_PASSWORD = 'pitpdtalypaxpmnj'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
