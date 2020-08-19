@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.views.generic import View 
 from django.http import HttpResponse
 from django.core.mail import send_mail
+from django.conf import settings
+
+
 
 
 
@@ -20,7 +23,8 @@ def index(request):
 			sender_name = request.POST['name']
 			sent_email = request.POST['email']
 			sender_message = request.POST['message']
-			send_mail(sender_name, sender_message, [sent_email], ['nyiwendesally@gmail.com'], fail_silently=False)
+			send_to = ['nyiwendesally@gmail.com']
+			send_mail(sender_name, sender_message, [sent_email], send_to, fail_silently=False)
 
 		return render(request, 'blog/index.html', {'sender_name': sender_name})
 	else:

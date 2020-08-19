@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'vq#t8w$paso^%5$lt6&%5b1ve_0_lk_)mi*95wsjay7q&j6*=3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','.pythonanywhere.com']
 
@@ -124,9 +124,10 @@ STATIC_ROOT =os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRDIRS = [
     os.path.join(BASE_DIR,'static'),
 ]
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'nyiwendesally@gmail.com'
-EMAIL_HOST_PASSWORD = 'pitpdtalypaxpmnj'
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

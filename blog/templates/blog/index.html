@@ -204,14 +204,17 @@
        
 
         <section id="contact" class="site-section section-form text-center">
-             {%if sender_name %}
+           
+          
+            <div class="container">
+   {%if sender_name %}
+            
                    <center>
                     <h1>Thanks {{ sender_name}}!</h1>
                     <p>I have received your email I'll contact you as soon as possible...</p>
                     </center><br><br>
+               
         {% else %}
-            <div class="container">
-
                 <h3>Contact</h3>
                 <img src="{% static 'website/assets/img/lines.svg' %}" class="img-lines" alt="lines">
                 <form method="post">
@@ -240,8 +243,9 @@
                 </form>
                 
             </div>
+             {% endif %}
         </section><!-- /.section-form -->
-        {% endif %}
+       
 
     </main><!-- /#main -->
 
